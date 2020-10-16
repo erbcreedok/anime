@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap-4-grid/css/grid.min.css'
+import 'rsuite/dist/styles/rsuite-default.css';
+import 'rsuite/lib/styles/themes/dark/index.less';
+import './style/index.css'
 
 ReactDOM.render(
   <React.StrictMode>

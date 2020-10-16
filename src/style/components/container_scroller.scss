@@ -1,0 +1,26 @@
+.container_scroller {
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow: scroll;
+  &__wrapper {
+    position: relative;
+  }
+  &__button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    background: rgba(0,0,0,.1);
+    transition: .5s ease-out;
+    &-left {
+      left: 0;
+    }
+    &-right {
+      right: 0;
+    }
+  }
+  &:hover &__button {
+    opacity: 1;
+    transition: .15s ease-in;
+  }
+}

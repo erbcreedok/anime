@@ -1,0 +1,152 @@
+.wide_slide {
+  position: relative;
+  height: 100%;
+  display: flex;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: rgba(0,0,0,.2);
+    background: linear-gradient(0deg, rgba(0, 0, 0, .7) -20px, rgba(0, 0, 0, .4) 200px, rgba(0, 0, 0, 0) 400px);
+    mix-blend-mode: luminosity;
+  }
+  &__poster {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    video, iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-show_video &__poster {
+    opacity: 0;
+    transition: .3s ease-out;
+  }
+  &-use_shadow {
+    .wide_slide__gradient_overlay {
+      $color: #a02f27;
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      background: $color;
+      background: linear-gradient(93deg, rgba($color, 1) 0%, rgba($color, .7) 440px, rgba($color, 0) 100%);
+      mix-blend-mode: multiply;
+    }
+  }
+  &-use_shadow &__video, &-use_shadow &__poster {
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      background: rgba(0,0,0,.2);
+      mix-blend-mode: luminosity;
+    }
+  }
+  &__container {
+    position: relative;
+    z-index: 10;
+    margin-top: auto;
+    margin-bottom: 50px;
+  }
+  &__content {
+    max-width: 520px;
+    color: white;
+    text-shadow: 0 0 5px rgba(0,0,0,.7);
+  }
+  &__heading {
+    margin-bottom: 24px;
+  }
+  &__info {
+    font-size: 18px;
+  }
+  &__logo {
+    max-width: 100%;
+    height: 100px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: left;
+      position: static;
+    }
+  }
+  &__dot_group {
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+    width: 400px;
+    .carousel__dot {
+      width: 100%;
+      height: 3px;
+      opacity: .5;
+      margin-right: 5px;
+      transition: .1s;
+      background: white;
+      &:hover {
+        opacity: 1;
+        transition: 0s;
+      }
+      &--selected {
+        opacity: 1;
+        width: 200%;
+        position: relative;
+        animation-duration: inherit;
+        background: rgba(255, 255, 255, .5);
+        &:before {
+          content: '';
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: white;
+          transform-origin: left;
+          animation: loadAnimation linear forwards;
+          animation-duration: inherit;
+        }
+        @keyframes loadAnimation {
+          from {
+            transform: scaleX(0);
+          }
+          to {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+  }
+}

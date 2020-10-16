@@ -1,0 +1,13 @@
+.slider_section {
+  width: 100%;
+  .slider, .carousel__inner-slide {
+    min-height: 600px;
+    max-height: 90vh;
+  }
+  .carousel__inner-slide, .carousel__inner-slide:focus {
+    outline: none;
+  }
+  .carousel__slide-focus-ring {
+    display: none;
+  }
+}

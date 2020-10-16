@@ -1,0 +1,33 @@
+.anime_box {
+  & {
+    width: 270px;
+    padding: 12px;
+  }
+  &__image {
+    padding-bottom: 80%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 12px;
+    transition: .15s ease-in-out;
+    border-radius: 8px;
+  }
+  &:hover &__image {
+    transform: scale(1.1);
+  }
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    margin-right: -12px;
+    margin-left: -12px;
+    overflow: scroll;
+  }
+  &__wrapper {
+    margin-bottom: 24px;
+  }
+  &__heading {
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+}

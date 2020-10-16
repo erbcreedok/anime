@@ -1,0 +1,23 @@
+@mixin rsButton($name, $color, $darkenColor, $accentColor, $textColor) {
+  .rs-btn-default.rs-btn-#{$name} {
+    color: $textColor;
+    background-color: $color;
+    &:active, &.rs-btn-active, .open > .rs-dropdown-toggle#{&} {
+      background-image: none;
+    }
+    &:active, &.rs-btn-active, .rs-open > .rs-dropdown-toggle#{&} {
+      color: $textColor;
+      background-color: $darkenColor;
+    }
+    &:focus, &.rs-btn-focus {
+      color: $textColor;
+      background-color: $accentColor;
+    }
+    &:not(.rs-btn-disabled):hover {
+      background-color: $accentColor;
+    }
+    &:hover {
+      color: $textColor;
+    }
+  }
+}

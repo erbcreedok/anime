@@ -1,0 +1,12 @@
+.container_imitator {
+  overflow: hidden;
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+.container_imitator + .container {
+  position: relative;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=container_scroller.css.map */

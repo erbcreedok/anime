@@ -1,0 +1,6 @@
+@import "../mixins/rs_button";
+.rs-btn {
+  font-weight: bold;
+}
+
+@include rsButton(brand, var(--color-brand), var(--color-brand-darker), var(--color-brand-accent), #fff);
