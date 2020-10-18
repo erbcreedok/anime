@@ -75,8 +75,9 @@ body {
 }
 
 .anime_box {
-  width: 270px;
+  min-width: 270px;
   padding: 12px;
+  position: relative;
 }
 .anime_box__image {
   padding-bottom: 80%;
@@ -87,17 +88,15 @@ body {
   border-radius: 8px;
 }
 .anime_box:hover .anime_box__image {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .anime_box__row {
   display: flex;
+  flex-wrap: nowrap;
   align-items: flex-start;
   margin-right: -12px;
   margin-left: -12px;
   overflow: scroll;
-}
-.anime_box__wrapper {
-  margin-bottom: 24px;
 }
 .anime_box__heading {
   margin-bottom: 12px;
@@ -285,6 +284,7 @@ body {
 }
 .container_scroller__wrapper {
   position: relative;
+  overflow: hidden;
 }
 .container_scroller__button {
   position: absolute;
@@ -294,15 +294,36 @@ body {
   background: rgba(0, 0, 0, 0.1);
   transition: 0.5s ease-out;
 }
+@media (max-width: 768px) {
+  .container_scroller__button {
+    display: none;
+  }
+}
+.container_scroller__button:hover {
+  opacity: 1;
+  transition: 0.15s ease-in;
+}
 .container_scroller__button-left {
   left: 0;
+}
+.container_scroller__button-left:hover {
+  background: linear-gradient(90deg, #2f2f2f 0%, rgba(47, 47, 47, 0.5) 75%, rgba(47, 47, 47, 0) 100%);
 }
 .container_scroller__button-right {
   right: 0;
 }
-.container_scroller:hover .container_scroller__button {
-  opacity: 1;
+.container_scroller__button-right:hover {
+  background: linear-gradient(270deg, #2f2f2f 0%, rgba(47, 47, 47, 0.5) 75%, rgba(47, 47, 47, 0) 100%);
+}
+.container_scroller:hover + .container_scroller__button, .container_scroller:hover + .container_scroller__button + .container_scroller__button {
+  opacity: 0.7;
   transition: 0.15s ease-in;
+}
+.container_scroller:hover + .container_scroller__button-left, .container_scroller:hover + .container_scroller__button + .container_scroller__button-left {
+  background: linear-gradient(90deg, #2f2f2f 0%, rgba(47, 47, 47, 0) 100%);
+}
+.container_scroller:hover + .container_scroller__button-right, .container_scroller:hover + .container_scroller__button + .container_scroller__button-right {
+  background: linear-gradient(270deg, #2f2f2f 0%, rgba(47, 47, 47, 0) 100%);
 }
 
 .slider_section {
@@ -322,6 +343,8 @@ body {
 .home_layout {
   background: #2f2f2f;
   color: #dedede;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /*# sourceMappingURL=index.css.map */

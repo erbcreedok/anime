@@ -4,6 +4,7 @@
   overflow: scroll;
   &__wrapper {
     position: relative;
+    overflow: hidden;
   }
   &__button {
     position: absolute;
@@ -12,15 +13,34 @@
     opacity: 0;
     background: rgba(0,0,0,.1);
     transition: .5s ease-out;
+    @media (max-width: 768px) {
+      display: none;
+    }
+    &:hover {
+      opacity: 1;
+      transition: .15s ease-in;
+    }
     &-left {
       left: 0;
+      &:hover {
+        background: linear-gradient(90deg, rgb(47, 47, 47) 0%, rgba(47, 47, 47, .5) 75%, rgba(47, 47, 47, 0) 100%);
+      }
     }
     &-right {
       right: 0;
+      &:hover {
+        background: linear-gradient(270deg, rgb(47, 47, 47) 0%, rgba(47, 47, 47, .5) 75%, rgba(47, 47, 47, 0) 100%);
+      }
     }
   }
-  &:hover &__button {
-    opacity: 1;
+  &:hover + &__button, &:hover + &__button + &__button {
+    opacity: .7;
     transition: .15s ease-in;
+    &-left {
+      background: linear-gradient(90deg, rgb(47, 47, 47) 0%, rgba(47, 47, 47, 0) 100%);
+    }
+    &-right {
+      background: linear-gradient(270deg, rgb(47, 47, 47) 0%, rgba(47, 47, 47, 0) 100%);
+    }
   }
 }
