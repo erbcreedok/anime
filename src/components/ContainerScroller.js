@@ -66,7 +66,6 @@ function ContainerScroller({ children, ...rest}) {
         function scrollToAnchor(oldScrollLeft) {
           clearTimeout(timeout)
           timeout = setTimeout(() => {
-            console.log(elem.scrollLeft, anchor)
             if (Math.abs(elem.scrollLeft - anchor) > Math.abs(step)) {
               elem.scrollLeft += step
               if (elem.scrollLeft !== oldScrollLeft) {
