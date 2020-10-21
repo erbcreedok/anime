@@ -1,12 +1,18 @@
 @import "variables/colors";
 
 @import "base/body";
+@import "base/container";
+@import "base/heading";
+@import "base/animations";
+@import "base/link";
 
 @import "components/header";
 @import "components/anime_box";
 @import "components/wide_slide";
 @import "components/button";
 @import "components/container_scroller";
+@import "components/anime_background";
+@import "components/anime_info";
 
 @import "sections/slider_section";
 

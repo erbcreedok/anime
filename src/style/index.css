@@ -2,6 +2,11 @@
   --color-brand: #e64034;
   --color-brand-darker: #aa3026;
   --color-brand-accent: #e62a1a;
+  --color-rgb-gray: 141,141,141;
+  --color-gray-darker: #656565;
+  --color-rgb-gray-darker: 101,101,101;
+  --color-gray-accent: #aaaaaa;
+  --color-rgb-gray-accent: 170,170,170;
   --dark-main-color: #dedede;
   --dark-main-background: #2f2f2f;
   --dark-secondary-background: #1f1f1f;
@@ -10,6 +15,69 @@
 body {
   margin: 0;
   font-family: sans-serif;
+}
+
+@media (min-width: 1350px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+h1 {
+  line-height: 1;
+}
+
+.scale-enter {
+  opacity: 0;
+  transform-origin: top left;
+  transform: scale(0.9);
+}
+
+.scale-enter-active {
+  opacity: 1;
+  transform-origin: top left;
+  transform: scale(1);
+  transition: 0.15s;
+}
+
+.scale-exit {
+  opacity: 1;
+  transform-origin: top left;
+}
+
+.scale-exit-active {
+  opacity: 0;
+  transform-origin: top left;
+  transform: scale(0.9);
+  transition: 0.15s;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: 0.15s;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: 0.15s;
+}
+
+a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
+  text-decoration: inherit;
+  color: inherit;
 }
 
 .header {
@@ -74,10 +142,12 @@ body {
   color: rgba(255, 255, 255, 0.67);
 }
 
-.anime_box {
+.anime_box, .anime_box:hover {
   min-width: 270px;
   padding: 12px;
   position: relative;
+  color: inherit;
+  text-decoration: inherit;
 }
 .anime_box__image {
   padding-bottom: 80%;
@@ -255,25 +325,56 @@ body {
   font-weight: bold;
 }
 
-.rs-btn-default.rs-btn-brand {
+.rs-btn.btn-scale {
+  transform-origin: center;
+  transform: scale(1);
+  transition: 0.15s ease-in-out;
+}
+.rs-btn.btn-scale:hover {
+  transform: scale(1.05);
+}
+
+.rs-btn-default.rs-btn-brand, .rs-btn-scale.rs-btn-brand {
   color: #fff;
   background-color: var(--color-brand);
 }
-.rs-btn-default.rs-btn-brand:active, .rs-btn-default.rs-btn-brand.rs-btn-active, .rs-btn-default.rs-btn-brand .open > .rs-dropdown-toggle.rs-btn-default.rs-btn-brand {
+.rs-btn-default.rs-btn-brand:active, .rs-btn-default.rs-btn-brand.rs-btn-active, .rs-btn-default.rs-btn-brand .open > .rs-dropdown-toggle.rs-btn-default.rs-btn-brand, .rs-btn-default.rs-btn-brand .rs-btn-scale.rs-btn-brand, .rs-btn-scale.rs-btn-brand:active, .rs-btn-scale.rs-btn-brand.rs-btn-active, .rs-btn-scale.rs-btn-brand .open > .rs-dropdown-toggle.rs-btn-default.rs-btn-brand, .rs-btn-scale.rs-btn-brand .rs-btn-scale.rs-btn-brand {
   background-image: none;
 }
-.rs-btn-default.rs-btn-brand:active, .rs-btn-default.rs-btn-brand.rs-btn-active, .rs-btn-default.rs-btn-brand .rs-open > .rs-dropdown-toggle.rs-btn-default.rs-btn-brand {
+.rs-btn-default.rs-btn-brand:active, .rs-btn-default.rs-btn-brand.rs-btn-active, .rs-btn-default.rs-btn-brand .rs-open > .rs-dropdown-toggle.rs-btn-default.rs-btn-brand, .rs-btn-default.rs-btn-brand .rs-btn-scale.rs-btn-brand, .rs-btn-scale.rs-btn-brand:active, .rs-btn-scale.rs-btn-brand.rs-btn-active, .rs-btn-scale.rs-btn-brand .rs-open > .rs-dropdown-toggle.rs-btn-default.rs-btn-brand, .rs-btn-scale.rs-btn-brand .rs-btn-scale.rs-btn-brand {
   color: #fff;
   background-color: var(--color-brand-darker);
 }
-.rs-btn-default.rs-btn-brand:focus, .rs-btn-default.rs-btn-brand.rs-btn-focus {
+.rs-btn-default.rs-btn-brand:focus, .rs-btn-default.rs-btn-brand.rs-btn-focus, .rs-btn-scale.rs-btn-brand:focus, .rs-btn-scale.rs-btn-brand.rs-btn-focus {
   color: #fff;
   background-color: var(--color-brand-accent);
 }
-.rs-btn-default.rs-btn-brand:not(.rs-btn-disabled):hover {
+.rs-btn-default.rs-btn-brand:not(.rs-btn-disabled):hover, .rs-btn-scale.rs-btn-brand:not(.rs-btn-disabled):hover {
   background-color: var(--color-brand-accent);
 }
-.rs-btn-default.rs-btn-brand:hover {
+.rs-btn-default.rs-btn-brand:hover, .rs-btn-scale.rs-btn-brand:hover {
+  color: #fff;
+}
+
+.rs-btn-default.rs-btn-gray, .rs-btn-scale.rs-btn-gray {
+  color: #fff;
+  background-color: rgba(var(--color-rgb-gray), 0.7);
+}
+.rs-btn-default.rs-btn-gray:active, .rs-btn-default.rs-btn-gray.rs-btn-active, .rs-btn-default.rs-btn-gray .open > .rs-dropdown-toggle.rs-btn-default.rs-btn-gray, .rs-btn-default.rs-btn-gray .rs-btn-scale.rs-btn-gray, .rs-btn-scale.rs-btn-gray:active, .rs-btn-scale.rs-btn-gray.rs-btn-active, .rs-btn-scale.rs-btn-gray .open > .rs-dropdown-toggle.rs-btn-default.rs-btn-gray, .rs-btn-scale.rs-btn-gray .rs-btn-scale.rs-btn-gray {
+  background-image: none;
+}
+.rs-btn-default.rs-btn-gray:active, .rs-btn-default.rs-btn-gray.rs-btn-active, .rs-btn-default.rs-btn-gray .rs-open > .rs-dropdown-toggle.rs-btn-default.rs-btn-gray, .rs-btn-default.rs-btn-gray .rs-btn-scale.rs-btn-gray, .rs-btn-scale.rs-btn-gray:active, .rs-btn-scale.rs-btn-gray.rs-btn-active, .rs-btn-scale.rs-btn-gray .rs-open > .rs-dropdown-toggle.rs-btn-default.rs-btn-gray, .rs-btn-scale.rs-btn-gray .rs-btn-scale.rs-btn-gray {
+  color: #fff;
+  background-color: var(--color-gray-darker);
+}
+.rs-btn-default.rs-btn-gray:focus, .rs-btn-default.rs-btn-gray.rs-btn-focus, .rs-btn-scale.rs-btn-gray:focus, .rs-btn-scale.rs-btn-gray.rs-btn-focus {
+  color: #fff;
+  background-color: var(--color-gray-accent);
+}
+.rs-btn-default.rs-btn-gray:not(.rs-btn-disabled):hover, .rs-btn-scale.rs-btn-gray:not(.rs-btn-disabled):hover {
+  background-color: var(--color-gray-accent);
+}
+.rs-btn-default.rs-btn-gray:hover, .rs-btn-scale.rs-btn-gray:hover {
   color: #fff;
 }
 
@@ -287,12 +388,16 @@ body {
   overflow: hidden;
 }
 .container_scroller__button {
+  min-width: 100px;
   position: absolute;
   top: 0;
   bottom: 0;
   opacity: 0;
   background: rgba(0, 0, 0, 0.1);
   transition: 0.5s ease-out;
+}
+.container_scroller__button, .container_scroller__button:focus {
+  outline: none;
 }
 @media (max-width: 768px) {
   .container_scroller__button {
@@ -324,6 +429,140 @@ body {
 }
 .container_scroller:hover + .container_scroller__button-right, .container_scroller:hover + .container_scroller__button + .container_scroller__button-right {
   background: linear-gradient(270deg, #2f2f2f 0%, rgba(47, 47, 47, 0) 100%);
+}
+
+.anime_background {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+.anime_background__shadow {
+  position: absolute;
+  right: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  background: linear-gradient(90deg, black 50%, rgba(0, 0, 0, 0.7) 75%, rgba(0, 0, 0, 0) 100%);
+  z-index: 2;
+}
+.anime_background__content {
+  overflow: hidden;
+  background: black;
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 25%;
+}
+.anime_background__content:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: -270px;
+  top: -110px;
+  bottom: -110px;
+  right: -320px;
+  box-shadow: inset 0 0 160px 160px black;
+}
+.anime_background__content:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: 0.15s;
+}
+.anime_background__content img, .anime_background__content video {
+  transition: 0.15s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+.anime_background-is_blurred .anime_background__content:after {
+  background: rgba(0, 0, 0, 0.3);
+}
+.anime_background-is_blurred .anime_background__content img, .anime_background-is_blurred .anime_background__content video {
+  filter: blur(20px);
+}
+
+.anime_info {
+  min-height: 400px;
+  height: calc(100vh - 200px);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.anime_info__container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.anime_info__tabs .rs-nav-item {
+  margin-left: 4px;
+}
+.anime_info__tabs .rs-nav-item-active > .rs-nav-item-content, .anime_info__tabs .rs-nav-item-active > .rs-nav-item-content:focus {
+  color: white;
+  background: rgba(255, 255, 255, 0.3);
+}
+.anime_info__heading {
+  margin-top: 10vh;
+  transition: 0.15s;
+  max-width: 500px;
+}
+.anime_info__heading h1 {
+  transition: 0.15s;
+  font-size: 48px;
+}
+.anime_info__heading img {
+  transition: 0.15s;
+  max-width: 300px;
+  width: 100%;
+}
+.anime_info__heading-shorten {
+  margin-top: 24px;
+}
+.anime_info__heading-shorten h1 {
+  font-size: 36px;
+}
+.anime_info__heading-shorten img {
+  max-width: 150px;
+}
+.anime_info__description {
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  max-width: 500px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  text-shadow: 0 0 10px black, 0 0 3px black, 0 0 3px black;
+}
+.anime_info__full_description {
+  color: white;
+  font-size: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.anime_info__label {
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  margin-top: 16px;
+}
+.anime_info__value {
+  color: white;
+  display: block;
 }
 
 .slider_section {

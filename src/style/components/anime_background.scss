@@ -1,0 +1,66 @@
+.anime_background {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  &__shadow {
+    position: absolute;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgb(0,0,0) 50%,  rgba(0,0,0,.7) 75%, rgba(0,0,0,0) 100%);
+    z-index: 2;
+  }
+  &__content {
+    overflow: hidden;
+    background: rgb(0,0,0);
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 2;
+      left: -270px;
+      top: -110px;
+      bottom: -110px;
+      right: -320px;
+      box-shadow: inset 0 0 160px 160px black;
+    }
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0,0,0,0);
+      transition: .15s;
+    }
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 25%;
+    img, video {
+      transition: .15s;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;
+    }
+  }
+  &-is_blurred &__content {
+    &:after {
+      background: rgba(0,0,0,.3);
+    }
+    img, video {
+      filter: blur(20px)
+    }
+  }
+}

@@ -1,10 +1,10 @@
 import Anime1 from '../../assets/images/uzaki-chan-wants-to-hang-out-episode-3-english-sub.jpg'
-import Anime1Logo from '../../assets/images/logos/uzaki_logo.png'
 import Anime2 from '../../assets/images/dbddf9284fd5aedb27d5481ee6912ae3.jpg'
-import Anime2Vid from '../../assets/videos/One Punch Man - Blade Breakfast.mp4'
-import Anime2Logo from '../../assets/images/logos/onepunch_logo.png'
 import Anime3 from '../../assets/images/sao_bg.jpg'
+import Anime2Vid from '../../assets/videos/One Punch Man - Blade Breakfast.mp4'
 import Anime3Vid from '../../assets/videos/sao.mp4'
+import Anime1Logo from '../../assets/images/logos/uzaki_logo.png'
+import Anime2Logo from '../../assets/images/logos/onepunch_logo.png'
 import Anime3Logo from '../../assets/images/logos/SWA_logo.png'
 
 export default [

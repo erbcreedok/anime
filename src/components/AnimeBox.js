@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function AnimeBox() {
+function AnimeBox({ anime }) {
   return (
-    <div className='anime_box'>
-      <div className='anime_box__image' style={{backgroundImage: `url(https://d2y6mqrpjbqoe6.cloudfront.net/image/upload/f_auto,q_auto/cdn1/library/17_637292160270704163Uzaki-Chan_Small_RU.jpg`}} />
+    <Link className='anime_box' to={'/anime/' + anime.id}>
+      <div className='anime_box__image' style={{backgroundImage: `url(${anime.poster})`}} />
       <div className='anime_box__heading'>
-        Uzaki-chan Wants to Hang Out!
+        {anime.name}
       </div>
-    </div>
+    </Link>
   )
 }
 

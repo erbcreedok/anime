@@ -1,0 +1,36 @@
+.scale-enter {
+  opacity: 0;
+  transform-origin: top left;
+  transform: scale(0.9);
+}
+.scale-enter-active {
+  opacity: 1;
+  transform-origin: top left;
+  transform: scale(1);
+  transition: .15s
+}
+.scale-exit {
+  opacity: 1;
+  transform-origin: top left;
+}
+.scale-exit-active {
+  opacity: 0;
+  transform-origin: top left;
+  transform: scale(0.9);
+  transition: .15s;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: .15s;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: .15s;
+}

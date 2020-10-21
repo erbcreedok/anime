@@ -1,0 +1,6 @@
+a:not([class]), .link_inherit {
+  &, &:hover {
+    text-decoration: inherit;
+    color: inherit;
+  }
+}

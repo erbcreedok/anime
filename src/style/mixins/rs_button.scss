@@ -1,5 +1,5 @@
 @mixin rsButton($name, $color, $darkenColor, $accentColor, $textColor) {
-  .rs-btn-default.rs-btn-#{$name} {
+  .rs-btn-default.rs-btn-#{$name}, .rs-btn-scale.rs-btn-#{$name} {
     color: $textColor;
     background-color: $color;
     &:active, &.rs-btn-active, .open > .rs-dropdown-toggle#{&} {

@@ -2,5 +2,14 @@
 .rs-btn {
   font-weight: bold;
 }
+.rs-btn.btn-scale {
+  transform-origin: center;
+  transform: scale(1);
+  transition: .15s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
 
 @include rsButton(brand, var(--color-brand), var(--color-brand-darker), var(--color-brand-accent), #fff);
+@include rsButton(gray, rgba(var(--color-rgb-gray), .7), var(--color-gray-darker), var(--color-gray-accent), #fff);

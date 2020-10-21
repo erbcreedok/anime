@@ -3,6 +3,7 @@ import concatClassModifiers from '../helpers/concatClassModifiers.js'
 import hexToRgb from '../helpers/hexToRgb.js'
 import { ButtonNext, DotGroup } from 'pure-react-carousel'
 import { Button, ButtonToolbar, Icon } from 'rsuite'
+import { Link } from 'react-router-dom'
 
 function WideSlide({ slide, visible }) {
   const [showVideo, setShowVideo] = useState(false)
@@ -30,7 +31,9 @@ function WideSlide({ slide, visible }) {
     clearTimeout(delay)
     if (visible) {
       setDelay(setTimeout(() => {
-        nextButtonRef.current.instance.handleOnClick()
+        if (nextButtonRef.current) {
+          nextButtonRef.current.instance.handleOnClick()
+        }
       }, slideDelay * 1000))
     }
     return () => {
@@ -89,8 +92,9 @@ function WideSlide({ slide, visible }) {
         </div>
         <div className="d-flex wide_slide__buttons mt-4">
           <ButtonToolbar>
-            <Button color='brand' size='lg'><Icon icon='play' className='mr-2'/> Смотреть</Button>
-            <ButtonNext ref={nextButtonRef} className='rs-btn rs-btn-subtle rs-btn-lg rs-btn-default'><Icon icon='fast-forward'/> Следующий</ButtonNext>
+            <Button color='red' size='lg'><Icon icon='play' className='mr-2'/> Смотреть</Button>
+            <Button componentClass={Link} to={'/anime/' + slide.animeId} appearance='subtle' size='lg'><Icon icon='info' /> Подобнее</Button>
+            <ButtonNext ref={nextButtonRef} className='rs-btn rs-btn-subtle rs-btn-lg rs-btn-default rs-btn-icon'><Icon icon='fast-forward'/></ButtonNext>
           </ButtonToolbar>
         </div>
         <DotGroup className='wide_slide__dot_group mt-4' style={dotsStyle} />

@@ -29,10 +29,10 @@ function Header({ stickyTransparent, ...props }) {
         <div className="header__container container">
           <div className="header__sidebar_toggle">
           </div>
-          <div className="header__logo">
+          <Link to='/' className="link_inherit header__logo">
             <img src={Logo} alt="" className='header__logo_image'/>
             KANDO
-          </div>
+          </Link>
           <div className="header__search ml-auto">
           </div>
           <div className='header__sign_in ml-4'>

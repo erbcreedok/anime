@@ -62,12 +62,12 @@ function ContainerScroller({ children, ...rest}) {
         offset -= (offset % containerOffset)
         const anchor = (elem.scrollLeft + offset)
         const delay = 10
-        const durationForElement = 100
-        const step = (direction * containerOffset) / (durationForElement / delay)
+        const step = (direction * containerWidth) / (delay)
         function scrollToAnchor(oldScrollLeft) {
           clearTimeout(timeout)
           timeout = setTimeout(() => {
-            if (Math.abs(elem.scrollLeft - anchor) > 10) {
+            console.log(elem.scrollLeft, anchor)
+            if (Math.abs(elem.scrollLeft - anchor) > Math.abs(step)) {
               elem.scrollLeft += step
               if (elem.scrollLeft !== oldScrollLeft) {
                 scrollToAnchor(elem.scrollLeft)
@@ -91,12 +91,12 @@ function ContainerScroller({ children, ...rest}) {
         <div style={{minWidth: containerOffset, minHeight: 1}} />
       </div>
       {pinned !== 'left' && (
-        <button className={concatClassModifiers('container_scroller__button', 'left')} style={{minWidth: containerOffset, minHeight: 1}} onClick={scrollContainer()}>
+        <button className={concatClassModifiers('container_scroller__button', 'left')} style={{width: containerOffset, minHeight: 1}} onClick={scrollContainer()}>
           <Icon icon='angle-left' size='3x' />
         </button>
       )}
       {pinned !== 'right' && (
-        <button className={concatClassModifiers('container_scroller__button', 'right')} style={{minWidth: containerOffset, minHeight: 1}} onClick={scrollContainer(true)}>
+        <button className={concatClassModifiers('container_scroller__button', 'right')} style={{width: containerOffset, minHeight: 1}} onClick={scrollContainer(true)}>
           <Icon icon='angle-right' size='3x' />
         </button>
       )}

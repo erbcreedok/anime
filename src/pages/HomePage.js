@@ -3,8 +3,9 @@ import HomeLayout from '../layouts/HomeLayout.js'
 import AnimeBox from '../components/AnimeBox.js'
 import SliderSection from '../sections/SliderSection/SliderSection.js'
 import ContainerScroller from '../components/ContainerScroller.js'
+import animes from '../localServer/localDatabase/animes.js'
 
-const ANIMES = [1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,]
+const ANIMES = [...animes, ...animes, ...animes, ...animes, ...animes]
 
 function HomePage() {
   return (
@@ -17,7 +18,7 @@ function HomePage() {
       </div>
       <ContainerScroller className="anime_box__row">
         {ANIMES.map((anime, index) => (
-          <AnimeBox key={index} />
+          <AnimeBox key={index} anime={anime} />
         ))}
       </ContainerScroller>
     </HomeLayout>
