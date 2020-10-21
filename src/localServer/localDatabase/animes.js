@@ -6,6 +6,7 @@ import Anime3Vid from '../../assets/videos/sao.mp4'
 import Anime1Logo from '../../assets/images/logos/uzaki_logo.png'
 import Anime2Logo from '../../assets/images/logos/onepunch_logo.png'
 import Anime3Logo from '../../assets/images/logos/SWA_logo.png'
+import uzakiEpisodes from './episodes/uzakiEpisodes.js'
 
 const animes = [
   {
@@ -23,7 +24,8 @@ const animes = [
       {label: 'Режиссер', value: 'Миура Кадзуя'},
       {label: 'Озвучка', value: 'StudioBand, AniRise, AniLIbria'},
       {label: 'Возрастной рейтинг', value: 'PG-13 (от 13 лет)'},
-    ]
+    ],
+    episodes: [...uzakiEpisodes],
   },
   {
     id: '2',
@@ -41,7 +43,8 @@ const animes = [
       {label: 'Режиссер', value: 'Нацумэ Синго'},
       {label: 'Озвучка', value: 'JAM CLUB Kansai, SHIZA Project'},
       {label: 'Возрастной рейтинг', value: 'R-17+ (насилие и/или нецензурная лексика)'},
-    ]
+    ],
+    episodes: [...uzakiEpisodes],
   },
   {
     id: '3',

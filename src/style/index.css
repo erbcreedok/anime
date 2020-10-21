@@ -150,7 +150,7 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   text-decoration: inherit;
 }
 .anime_box__image {
-  padding-bottom: 80%;
+  height: 190px;
   background-size: cover;
   background-position: center;
   margin-bottom: 12px;
@@ -495,6 +495,17 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
 .anime_background-is_blurred .anime_background__content img, .anime_background-is_blurred .anime_background__content video {
   filter: blur(20px);
 }
+@media (max-width: 768px) {
+  .anime_background__shadow {
+    right: 100%;
+  }
+  .anime_background__content {
+    left: 0;
+  }
+  .anime_background__content:after {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
 
 .anime_info {
   min-height: 400px;
@@ -509,13 +520,6 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-.anime_info__tabs .rs-nav-item {
-  margin-left: 4px;
-}
-.anime_info__tabs .rs-nav-item-active > .rs-nav-item-content, .anime_info__tabs .rs-nav-item-active > .rs-nav-item-content:focus {
-  color: white;
-  background: rgba(255, 255, 255, 0.3);
 }
 .anime_info__heading {
   margin-top: 10vh;
@@ -563,6 +567,19 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
 .anime_info__value {
   color: white;
   display: block;
+}
+
+.nav_tabs .rs-nav-item {
+  margin-left: 4px;
+}
+.nav_tabs .rs-nav-item-active > .rs-nav-item-content, .nav_tabs .rs-nav-item-active > .rs-nav-item-content:focus {
+  color: white;
+  background: rgba(255, 255, 255, 0.3);
+  transition: 0.15s;
+}
+.nav_tabs .rs-nav-item-active > .rs-nav-item-content:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .slider_section {

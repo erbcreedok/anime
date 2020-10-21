@@ -11,17 +11,6 @@
     display: flex;
     flex-direction: column;
   }
-  &__tabs {
-    .rs-nav-item {
-      margin-left: 4px;
-      &-active > .rs-nav-item-content {
-        &, &:focus {
-          color: white;
-          background: rgba(255,255,255,.3);
-        }
-      }
-    }
-  }
   &__heading {
     margin-top: 10vh;
     transition: .15s;

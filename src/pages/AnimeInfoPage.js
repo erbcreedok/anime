@@ -6,6 +6,7 @@ import { getAnimeById } from '../localServer/localDatabase/animes.js'
 import modifyClass from '../helpers/modifyClass.js'
 import { Button, ButtonToolbar, Icon, IconButton, Nav } from 'rsuite'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import AnimeEpisodes from '../components/AnimeEpisodes.js'
 
 const TAB_MAIN = 'TAB_MAIN'
 const TAB_INFO = 'TAB_INFO'
@@ -17,7 +18,6 @@ function AnimeInfoPage() {
   const [tab, setTab] = useState(TAB_MAIN)
 
   if (!anime) {
-    console.log(animeId)
     return <>Loading</>
   }
   return (
@@ -25,7 +25,7 @@ function AnimeInfoPage() {
       <div className="anime_info">
         <AnimeBackground anime={anime} isBlurred={tab!==TAB_MAIN} />
         <div className="container">
-          <Nav activeKey={tab} onSelect={setTab} className='anime_info__tabs'>
+          <Nav activeKey={tab} onSelect={setTab} className='nav_tabs'>
             <Nav.Item eventKey={TAB_MAIN}>Об аниме</Nav.Item>
             <Nav.Item eventKey={TAB_INFO}>Подробнее</Nav.Item>
           </Nav>
@@ -79,14 +79,7 @@ function AnimeInfoPage() {
           </CSSTransition>
         </TransitionGroup>
       </div>
-      {/*<>*/}
-      {/*  <div className="container">*/}
-      {/*    <h2>Эпизоды</h2>*/}
-      {/*  </div>*/}
-      {/*  <ContainerScroller className='anime_box__row'>*/}
-      {/*    /!*{[0,1,2,3,4,5,6,7,8,9,1,1,1,1,1,1,2].map((index) => <AnimeBox key={index}/>)}*!/*/}
-      {/*  </ContainerScroller>*/}
-      {/*</>*/}
+      {anime.episodes && (<AnimeEpisodes episodes={anime.episodes} className='my-5' />)}
     </HomeLayout>
   )
 }

@@ -1,0 +1,16 @@
+.nav_tabs {
+  .rs-nav-item {
+    margin-left: 4px;
+    &-active > .rs-nav-item-content {
+      &, &:focus {
+        color: white;
+        background: rgba(255,255,255,.3);
+        transition: .15s;
+      }
+      &:hover {
+        color: white;
+        background: rgba(255,255,255,.5);
+      }
+    }
+  }
+}

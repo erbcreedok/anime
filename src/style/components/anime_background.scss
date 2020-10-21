@@ -63,4 +63,15 @@
       filter: blur(20px)
     }
   }
+  @media (max-width: 768px) {
+    &__shadow {
+      right: 100%;
+    }
+    &__content {
+      left: 0;
+      &:after {
+        background: rgba(0,0,0,.3);
+      }
+    }
+  }
 }

@@ -34,7 +34,10 @@ function ContainerScroller({ children, ...rest}) {
   function handleScrollerScroll() {
     const elem = scrollerRef.current
     if (elem) {
-      if (elem.scrollLeft === 0) {
+      if (elem.scrollWidth - elem.offsetWidth === 0) {
+        setPinned('both')
+      }
+      else if (elem.scrollLeft === 0) {
         setPinned('left')
       } else if (elem.scrollLeft >= elem.scrollWidth - elem.offsetWidth) {
         setPinned('right')
@@ -89,12 +92,12 @@ function ContainerScroller({ children, ...rest}) {
         {children}
         <div style={{minWidth: containerOffset, minHeight: 1}} />
       </div>
-      {pinned !== 'left' && (
+      {!['left', 'both'].includes(pinned) && (
         <button className={concatClassModifiers('container_scroller__button', 'left')} style={{width: containerOffset, minHeight: 1}} onClick={scrollContainer()}>
           <Icon icon='angle-left' size='3x' />
         </button>
       )}
-      {pinned !== 'right' && (
+      {!['right', 'both'].includes(pinned) && (
         <button className={concatClassModifiers('container_scroller__button', 'right')} style={{width: containerOffset, minHeight: 1}} onClick={scrollContainer(true)}>
           <Icon icon='angle-right' size='3x' />
         </button>
