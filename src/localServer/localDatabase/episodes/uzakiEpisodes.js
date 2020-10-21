@@ -1,3 +1,5 @@
+import sample from '../../../assets/videos/sample.mp4'
+
 const uzakiEpisodes = [
   {
     animeId: '1',
@@ -11,12 +13,9 @@ const uzakiEpisodes = [
         name: 'Uzaki-chan Wants to Hang Out!',
         date: '10.06.2020',
         poster: 'https://mimin.cloud.kodik-storage.com/e6348035e6fa94082297d39dd51c160f:2020102120/useruploads/77f2059b-12c0-4e96-8f21-46ea69ffc106/thumb002.jpg',
-        video: [
-          {
-            quality: '720',
-            src: 'blob:https://aniqit.com/9e1b92bc-a8fd-4e80-afa2-e3839a4a71ff',
-          }
-        ],
+        media: {
+          video: sample,
+        },
       },
       {
         animeId: '1',
@@ -26,7 +25,9 @@ const uzakiEpisodes = [
         name: 'The Café Owner Wants a Glimpse!',
         date: '17.06.2020',
         poster: 'https://weyland.cloud.kodik-storage.com/b23151f95f695e0d266c5d76a3c3f782:2020102120/useruploads/a0427caf-e352-48e9-9949-1c028993c928/thumb005.jpg',
-        iframe: 'https://aniqit.com/serial/27649/c7c420258e0fe18d2a250971d9c310d6/720p?season=1&only_episode=true&episode=2'
+        media: {
+          iframe: 'https://aniqit.com/go/seria/687971/d5744896df04372819941f9b1aaf6b49/720p?d=localhost&d_sign=eedf8e1b02813004d8ce20f65447e34272bb9f1e24d943773ee7e1d7f21338b9&pd=aniqit.com&pd_sign=716d0963074fd798baeda496497e185ae65a539e726a0db11ffd49e615aab73b&ref=http://localhost:3000/&ref_sign=608a234031305f62cc7a0671dbfafe1846322d12786c84633b9f6f67bfe2ec97'
+        },
       },
     ]
   },
@@ -42,7 +43,9 @@ const uzakiEpisodes = [
         name: 'The Café Owner Wants a Glimpse!',
         date: '17.06.2020',
         poster: 'https://weyland.cloud.kodik-storage.com/b23151f95f695e0d266c5d76a3c3f782:2020102120/useruploads/a0427caf-e352-48e9-9949-1c028993c928/thumb005.jpg',
-        iframe: 'https://aniqit.com/serial/27649/c7c420258e0fe18d2a250971d9c310d6/720p?season=1&only_episode=true&episode=2'
+        media: {
+          iframe: 'https://aniqit.com/serial/27649/c7c420258e0fe18d2a250971d9c310d6/720p?season=1&only_episode=true&episode=2'
+        },
       },
       {
         animeId: '1',
@@ -52,12 +55,9 @@ const uzakiEpisodes = [
         name: 'Uzaki-chan Wants to Hang Out!',
         date: '10.06.2020',
         poster: 'https://mimin.cloud.kodik-storage.com/e6348035e6fa94082297d39dd51c160f:2020102120/useruploads/77f2059b-12c0-4e96-8f21-46ea69ffc106/thumb002.jpg',
-        video: [
-          {
-            quality: '720',
-            src: 'blob:https://aniqit.com/9e1b92bc-a8fd-4e80-afa2-e3839a4a71ff',
-          }
-        ],
+        media: {
+          video: sample,
+        },
       },
     ]
   },
@@ -73,12 +73,9 @@ const uzakiEpisodes = [
         name: 'Uzaki-chan Wants to Hang Out!',
         date: '10.06.2020',
         poster: 'https://mimin.cloud.kodik-storage.com/e6348035e6fa94082297d39dd51c160f:2020102120/useruploads/77f2059b-12c0-4e96-8f21-46ea69ffc106/thumb002.jpg',
-        video: [
-          {
-            quality: '720',
-            src: 'blob:https://aniqit.com/9e1b92bc-a8fd-4e80-afa2-e3839a4a71ff',
-          }
-        ],
+        media: {
+          video: sample,
+        },
       },
       {
         animeId: '1',
@@ -88,7 +85,9 @@ const uzakiEpisodes = [
         name: 'The Café Owner Wants a Glimpse!',
         date: '17.06.2020',
         poster: 'https://weyland.cloud.kodik-storage.com/b23151f95f695e0d266c5d76a3c3f782:2020102120/useruploads/a0427caf-e352-48e9-9949-1c028993c928/thumb005.jpg',
-        iframe: 'https://aniqit.com/serial/27649/c7c420258e0fe18d2a250971d9c310d6/720p?season=1&only_episode=true&episode=2'
+        media: {
+          iframe: 'https://aniqit.com/serial/27649/c7c420258e0fe18d2a250971d9c310d6/720p?season=1&only_episode=true&episode=2'
+        },
       },
     ]
   },

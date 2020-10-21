@@ -1,24 +1,27 @@
 import React, { useState } from 'react'
 import HomeLayout from '../layouts/HomeLayout.js'
 import AnimeBackground from '../components/AnimeBackground.js'
-import useRouteParam from '../hooks/useRouteParam.js'
 import { getAnimeById } from '../localServer/localDatabase/animes.js'
 import modifyClass from '../helpers/modifyClass.js'
 import { Button, ButtonToolbar, Icon, IconButton, Nav } from 'rsuite'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import AnimeEpisodes from '../components/AnimeEpisodes.js'
+import NotFoundPage from './NotFoundPage.js'
+import { Link } from 'react-router-dom'
+import { useParams } from 'react-router'
+import RelatedAnimes from '../components/RelatedAnimes.js'
 
 const TAB_MAIN = 'TAB_MAIN'
 const TAB_INFO = 'TAB_INFO'
 
 function AnimeInfoPage() {
-  const animeId = useRouteParam('id')
+  const animeId = useParams().id
   const anime = getAnimeById(animeId)
 
   const [tab, setTab] = useState(TAB_MAIN)
 
   if (!anime) {
-    return <>Loading</>
+    return <NotFoundPage />
   }
   return (
     <HomeLayout>
@@ -48,23 +51,23 @@ function AnimeInfoPage() {
                 <p className='anime_info__description'>{anime.shortInfo}</p>
                 <div className="d-flex wide_slide__buttons">
                   <ButtonToolbar>
-                    <Button className='btn-scale' color='red' size='lg'><Icon icon='play' className='mr-2'/> Смотреть</Button>
+                    <Button componentClass={Link} to={'/watch/' + anime.id} className='btn-scale' color='red' size='lg'><Icon icon='play' className='mr-2'/> Смотреть</Button>
                     <IconButton className='btn-scale' appearance='subtle' size='lg' icon={<Icon icon='heart' />} />
                   </ButtonToolbar>
                 </div>
               </>
             )}
             {tab === TAB_INFO && (
-              <>
+              <div className='anime_info__info'>
                 <div className="row">
                   <div className="col-lg-6">
                     <p className='anime_info__full_description'>{anime.info}</p>
                   </div>
                   {anime.detail && (
-                    <div className="col-lg-6">
+                    <div className="anime_info__details col-lg-6">
                       {
                         anime.detail.map((detail, index) => (
-                          <div key={index}>
+                          <div className='anime_info__detail' key={index}>
                             <span className="anime_info__label">{detail.label}</span>
                             <span className='anime_info__value'>{detail.value}</span>
                           </div>
@@ -73,13 +76,14 @@ function AnimeInfoPage() {
                     </div>
                   )}
                 </div>
-              </>
+              </div>
             )}
             </div>
           </CSSTransition>
         </TransitionGroup>
       </div>
       {anime.episodes && (<AnimeEpisodes episodes={anime.episodes} className='my-5' />)}
+      <RelatedAnimes animeId={animeId} className='my-5' />
     </HomeLayout>
   )
 }

@@ -1,0 +1,17 @@
+.full_screen_layout {
+  background: #2f2f2f;
+  color: #dedede;
+  width: 100%;
+  overflow-x: hidden;
+  &__wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+  }
+  &__content {
+    height: calc(100% - 64px);
+    position: relative;
+  }
+}

@@ -11,6 +11,7 @@ function IndexPage() {
         <Switch>
           <Route path='/home' component={LazyComponent(() =>import('./HomePage.js'))} />} />
           <Route path='/anime/:id' component={LazyComponent(() =>import('./AnimeInfoPage.js'))} />} />
+          <Route path='/watch/:id' component={LazyComponent(() =>import('./WatchPage.js'))} />} />
           <Redirect path='/' exact to='/home' />
           <Route path='*' component={LazyComponent(() => import('./NotFoundPage.js'))} />} />
         </Switch>

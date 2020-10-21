@@ -7,7 +7,6 @@ import EpisodeBox from './EpisodeBox.js'
 function AnimeEpisodes({ episodes, ...props }) {
   const [tab, setTab] = useState(episodes[0].season)
   const selectedSeason = episodes.find((season) => season.season === tab)
-  console.log(selectedSeason)
   return (
     <div className={inheritPropClassName(props,'anime_episodes')}>
       <div className="container">

@@ -7,6 +7,7 @@ import Anime1Logo from '../../assets/images/logos/uzaki_logo.png'
 import Anime2Logo from '../../assets/images/logos/onepunch_logo.png'
 import Anime3Logo from '../../assets/images/logos/SWA_logo.png'
 import uzakiEpisodes from './episodes/uzakiEpisodes.js'
+import onepunchmanEpisodes from './episodes/onepunchmanEpisodes.js'
 
 const animes = [
   {
@@ -44,7 +45,7 @@ const animes = [
       {label: 'Озвучка', value: 'JAM CLUB Kansai, SHIZA Project'},
       {label: 'Возрастной рейтинг', value: 'R-17+ (насилие и/или нецензурная лексика)'},
     ],
-    episodes: [...uzakiEpisodes],
+    episodes: [...onepunchmanEpisodes],
   },
   {
     id: '3',
@@ -56,6 +57,14 @@ const animes = [
     backgroundImage: Anime3,
     logoImage: Anime3Logo,
     backgroundVideo: Anime3Vid,
+    media: {
+      video: [
+        {
+          quality: '720',
+          src: 'blob:https://aniqit.com/9e1b92bc-a8fd-4e80-afa2-e3839a4a71ff',
+        }
+      ],
+    },
   },
 ]
 

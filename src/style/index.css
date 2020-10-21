@@ -508,10 +508,9 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
 }
 
 .anime_info {
-  min-height: 400px;
-  height: calc(100vh - 200px);
+  min-height: calc(100vh - 200px);
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -559,6 +558,17 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   margin-top: 24px;
   margin-bottom: 24px;
 }
+.anime_info__details {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 100%;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+.anime_info__detail {
+  display: block;
+  margin-right: 24px;
+}
 .anime_info__label {
   color: rgba(255, 255, 255, 0.5);
   display: block;
@@ -582,6 +592,18 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   background: rgba(255, 255, 255, 0.5);
 }
 
+.player {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+.player__iframe, .player__player {
+  border: none;
+  height: 100%;
+  width: 100%;
+  outline: none;
+}
+
 .slider_section {
   width: 100%;
 }
@@ -596,11 +618,36 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   display: none;
 }
 
+.watch_page__close_button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
 .home_layout {
   background: #2f2f2f;
   color: #dedede;
   width: 100%;
   overflow-x: hidden;
+}
+
+.full_screen_layout {
+  background: #2f2f2f;
+  color: #dedede;
+  width: 100%;
+  overflow-x: hidden;
+}
+.full_screen_layout__wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+.full_screen_layout__content {
+  height: calc(100% - 64px);
+  position: relative;
 }
 
 /*# sourceMappingURL=index.css.map */

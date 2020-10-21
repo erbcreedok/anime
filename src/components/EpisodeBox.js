@@ -3,7 +3,7 @@ import React from 'react'
 
 function EpisodeBox({ episode }) {
   return (
-    <Link className='anime_box' to={`/watch/anime/${episode.animeId}/episode/${episode.episodeId}`}>
+    <Link className='anime_box' to={`/watch/${episode.animeId}?episode=${episode.episodeId}`}>
       <div className='anime_box__image' style={{backgroundImage: `url(${episode.poster})`}} />
       <div className='anime_box__heading'>
         {episode.name}
