@@ -383,6 +383,10 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   padding-right: 15px;
   overflow: scroll;
 }
+.container_scroller::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
 .container_scroller__wrapper {
   position: relative;
   overflow: hidden;
