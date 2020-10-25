@@ -11,7 +11,10 @@
     flex-direction: column;
   }
   &__content {
-    height: calc(100% - 64px);
+    height: 100%;
+    &-with_header {
+      height: calc(100% - 64px);
+    }
     position: relative;
   }
 }

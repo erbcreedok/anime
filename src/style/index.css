@@ -608,6 +608,15 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   outline: none;
 }
 
+.hard_backdrop.in {
+  backdrop-filter: blur(50px);
+  opacity: 0.6;
+}
+
+.login_form {
+  width: 100%;
+}
+
 .slider_section {
   width: 100%;
 }
@@ -627,6 +636,33 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   top: 10px;
   right: 10px;
   z-index: 10;
+}
+
+.login_page {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login_page__bg {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(20px);
+}
+.login_page .login_form__wrapper {
+  max-width: 400px;
+  padding: 24px 16px;
+  background: white;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
 }
 
 .home_layout {
@@ -650,8 +686,11 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   flex-direction: column;
 }
 .full_screen_layout__content {
-  height: calc(100% - 64px);
+  height: 100%;
   position: relative;
+}
+.full_screen_layout__content-with_header {
+  height: calc(100% - 64px);
 }
 
 /*# sourceMappingURL=index.css.map */

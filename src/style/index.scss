@@ -15,10 +15,14 @@
 @import "components/anime_info";
 @import "components/nav_tabs";
 @import "components/player";
+@import "components/hard_backdrop";
+
+@import "forms/login_form";
 
 @import "sections/slider_section";
 
 @import "pages/watch_page";
+@import "pages/login_page";
 
 @import "layouts/home_layout";
 @import "layouts/full_screen_layout";
