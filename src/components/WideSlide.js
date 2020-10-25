@@ -93,7 +93,7 @@ function WideSlide({ slide, visible }) {
         <div className="d-flex wide_slide__buttons mt-4">
           <ButtonToolbar>
             <Button componentClass={Link} to={'/watch/' + slide.animeId} color='red' size='lg'><Icon icon='play' className='mr-2'/> Смотреть</Button>
-            <Button componentClass={Link} to={'/anime/' + slide.animeId} appearance='subtle' size='lg'><Icon icon='info' /> Подобнее</Button>
+            <Button componentClass={Link} to={'/anime/' + slide.animeId} appearance='subtle' size='lg'><Icon icon='info' /> Подробнее</Button>
             <ButtonNext ref={nextButtonRef} className='rs-btn rs-btn-subtle rs-btn-lg rs-btn-default rs-btn-icon'><Icon icon='fast-forward'/></ButtonNext>
           </ButtonToolbar>
         </div>

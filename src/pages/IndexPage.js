@@ -22,8 +22,8 @@ function IndexPage() {
           </Switch>
         </CSSTransition>
       </TransitionGroup>
-      {background && <Route path='/login' component={LazyComponent(() =>import('./LoginModalPage.js'))} />} />}
-      {background && <Route path='/register' component={LazyComponent(() =>import('./RegisterModalPage.js'))} />} />}
+      {background && <Route path='/login' component={LazyComponent(() =>import('./LoginModalPage.js'))} />}
+      {background && <Route path='/register' component={LazyComponent(() =>import('./RegisterModalPage.js'))} />}
     </>
   )
 }

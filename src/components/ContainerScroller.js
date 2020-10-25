@@ -13,14 +13,18 @@ function ContainerScroller({ children, ...rest}) {
   useEffect(() => {
     updateContainerOffset()
     window.addEventListener('resize', updateContainerOffset)
+    window.addEventListener('resize', handleScrollerScroll)
     return () => {
       window.removeEventListener('resize', updateContainerOffset)
+      window.removeEventListener('resize', handleScrollerScroll)
     }
   }, [containerRef])
 
   useEffect(() => {
     const elem = scrollerRef.current
-    handleScrollerScroll()
+    setTimeout(() => {
+      handleScrollerScroll()
+    }, 100)
     if (elem) {
       elem.addEventListener('scroll', handleScrollerScroll)
     }
