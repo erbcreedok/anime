@@ -5,8 +5,11 @@ import { Link, useLocation } from 'react-router-dom'
 import Logo from '../assets/images/naruto.svg'
 import { useUserState } from '../providers/UserProvider'
 import { logout, useAuthDispatch } from '../providers/AuthProvider'
+import { useTranslation } from 'react-i18next'
+import locales from '../configs/locales.js'
 
 function Header({ stickyTransparent, ...props }) {
+  const { t, i18n } = useTranslation('translation');
   const [isTransparent, setTransparent] = useState(false)
   const location = useLocation()
   const user = useUserState()
@@ -43,17 +46,29 @@ function Header({ stickyTransparent, ...props }) {
           </Link>
           <div className="header__search ml-auto">
           </div>
-          <div className='header__sign_in ml-4'>
+          <div className='header__sign_in ml-4 rsuite_dark_theme'>
             <ButtonToolbar className='d-flex'>
               <IconButton size='lg' icon={<Icon icon='search' />} appearance='subtle' />
+              <Dropdown
+                trigger={['hover', 'click']}
+                placement="bottomEnd"
+                renderTitle={() => <IconButton size='lg' icon={<Icon icon='globe2' />} appearance='subtle' />}
+              >
+                {locales.map(({code, name}) => (
+                  <Dropdown.Item key={code} onClick={() => i18n.changeLanguage(code)}>
+                    {name} {i18n.language === code && <Icon icon="check" className='ml-2' />}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown>
               {!user ? (
-                <Button to={{pathname: '/login', state: {from: location} }} componentClass={Link} size='lg' appearance="subtle">Войти</Button>
+                <Button to={{pathname: '/login', state: {from: location} }} componentClass={Link} size='lg' appearance="subtle">{t('login')}</Button>
               ) : (
                 <Dropdown
                   trigger={['hover', 'click']}
                   placement="bottomEnd"
                   renderTitle={() => (
                     <Avatar
+                      className='ml-1'
                       circle
                       src={user.avatar}
                     />

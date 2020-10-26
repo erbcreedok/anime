@@ -4,14 +4,16 @@ import { useHistory, useLocation } from 'react-router'
 import { Link } from 'react-router-dom'
 import { getUserIdByCredentials } from '../localServer/localDatabase/users.js'
 import { login, useAuthDispatch } from '../providers/AuthProvider'
+import { useTranslation } from 'react-i18next'
+import i18next from 'i18next'
 
 const { StringType } = Schema.Types;
 const model =  Schema.Model({
   name: StringType()
-    .isRequired('Это обязательное поле')
+    .isRequired(i18next.t('validator:isRequired'))
   ,
   password: StringType()
-    .isRequired('Это обязательное поле')
+    .isRequired(i18next.t('validator:isRequired'))
 })
 
 
@@ -19,6 +21,7 @@ function LoginForm() {
   const history =  useHistory()
   const location = useLocation()
   const dispatch = useAuthDispatch();
+  const { t } = useTranslation('signin')
   const { from } = location.state || { from: { pathname: "/" } };
   const form = useRef()
   const [fields, setFields] = useState({
@@ -45,13 +48,13 @@ function LoginForm() {
 
   return (
     <Form className='login_form' fluid ref={form} onSubmit={handleSubmit} model={model} onChange={setFields}>
-      <h3 className='mb-4'>Авторизация</h3>
+      <h3 className='mb-4'>{t('authorization')}</h3>
       <FormGroup>
-        <ControlLabel>Логин</ControlLabel>
+        <ControlLabel>{t('login')}</ControlLabel>
         <FormControl name="name" />
       </FormGroup>
       <FormGroup>
-        <ControlLabel>Пароль</ControlLabel>
+        <ControlLabel>{t('password')}</ControlLabel>
         <FormControl name="password" type="password" />
       </FormGroup>
       {error && (
@@ -61,11 +64,11 @@ function LoginForm() {
       )}
       <FormGroup>
         <ButtonToolbar className='d-flex'>
-          <Button onClick={onCancel}>Назад</Button>
-          <Button type='submit' className='ml-auto' appearance="primary">Войти</Button>
+          <Button onClick={onCancel}>{t('back')}</Button>
+          <Button type='submit' className='ml-auto' appearance="primary">{t('signin')}</Button>
         </ButtonToolbar>
       </FormGroup>
-      <span>Нет аккаунта?</span> <Link className='hint' to={{pathname: '/register', state: location.state}}>Создать аккаунт</Link>
+      <span>{t('dont have an account?')}</span> <Link className='default' to={{pathname: '/register', state: location.state}}>{t('create account')}</Link>
     </Form>
   )
 }

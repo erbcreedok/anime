@@ -1,10 +1,14 @@
 import { useEffect } from 'react'
 
-function useLayoutClass(layoutName) {
+function useLayoutClass(...classes) {
   useEffect(() => {
-    document.body.classList.add(layoutName)
+    classes.forEach((className) => {
+      document.body.classList.add(className)
+    })
     return () => {
-      document.body.classList.remove(layoutName)
+      classes.forEach((className) => {
+        document.body.classList.remove(className)
+      })
     }
   })
 }

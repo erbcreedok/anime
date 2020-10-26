@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './plugins/i18n.js'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap-4-grid/css/grid.min.css'
-import 'rsuite/dist/styles/rsuite-default.css';
+import 'rsuite/dist/styles/rsuite-default.min.css';
 import './style/rsuite_themes/rsuite_dark_theme.less';
 import './style/rsuite_themes/rsuite_default_theme.less';
 import './style/index.css';
