@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import HomeLayout from '../layouts/HomeLayout.js'
 import AnimeBackground from '../components/AnimeBackground.js'
-import { getAnimeById } from '../localServer/localDatabase/animes.js'
 import modifyClass from '../helpers/modifyClass.js'
 import { Button, ButtonToolbar, Icon, IconButton, Nav } from 'rsuite'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
@@ -10,27 +9,36 @@ import NotFoundPage from './NotFoundPage.js'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import RelatedAnimes from '../components/RelatedAnimes.js'
+import { useTranslation } from 'react-i18next'
+import fetchAnimeById from '../localServer/getters/fetchAnimeById.js'
 
 const TAB_MAIN = 'TAB_MAIN'
 const TAB_INFO = 'TAB_INFO'
 
 function AnimeInfoPage() {
+  const { t } = useTranslation()
   const animeId = useParams().id
-  const anime = getAnimeById(animeId)
+  const [anime, setAnime] = useState()
 
   const [tab, setTab] = useState(TAB_MAIN)
+
+  useEffect(() => {
+    setAnime(fetchAnimeById(animeId))
+  }, [animeId])
 
   if (!anime) {
     return <NotFoundPage />
   }
+
+  console.log(anime)
   return (
     <HomeLayout>
       <div className="anime_info">
         <AnimeBackground anime={anime} isBlurred={tab!==TAB_MAIN} />
         <div className="container">
           <Nav activeKey={tab} onSelect={setTab} className='nav_tabs'>
-            <Nav.Item eventKey={TAB_MAIN}>Об аниме</Nav.Item>
-            <Nav.Item eventKey={TAB_INFO}>Подробнее</Nav.Item>
+            <Nav.Item eventKey={TAB_MAIN}>{t('about anime')}</Nav.Item>
+            <Nav.Item eventKey={TAB_INFO}>{t('details')}</Nav.Item>
           </Nav>
           <div className={modifyClass('anime_info__heading', {'logo_visible': anime.logoImage, 'shorten': tab!==TAB_MAIN})}>
             {anime.logoImage ? (
@@ -51,7 +59,7 @@ function AnimeInfoPage() {
                 <p className='anime_info__description'>{anime.shortInfo}</p>
                 <div className="d-flex wide_slide__buttons">
                   <ButtonToolbar>
-                    <Button componentClass={Link} to={'/watch/' + anime.id} className='btn-scale' color='red' size='lg'><Icon icon='play' className='mr-2'/> Смотреть</Button>
+                    <Button componentClass={Link} to={'/watch/' + anime.id} className='btn-scale' color='red' size='lg'><Icon icon='play' className='mr-2'/> {t('watch')}</Button>
                     <IconButton className='btn-scale' appearance='subtle' size='lg' icon={<Icon icon='heart' />} />
                   </ButtonToolbar>
                 </div>
@@ -83,7 +91,7 @@ function AnimeInfoPage() {
         </TransitionGroup>
       </div>
       {anime.episodes && (<AnimeEpisodes episodes={anime.episodes} className='my-5' />)}
-      <RelatedAnimes animeId={animeId} className='my-5' />
+      <RelatedAnimes title={t('similar anime')} animeId={animeId} className='my-5' />
     </HomeLayout>
   )
 }

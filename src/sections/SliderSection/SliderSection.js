@@ -1,15 +1,11 @@
 import React from 'react'
-import {
-  CarouselProvider,
-  Slide,
-  Slider,
-} from 'pure-react-carousel'
+import { CarouselProvider, Slide, Slider, } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
-import sliderData from '../../localServer/localDatabase/sliderData.js'
 import WideSlide from '../../components/WideSlide.js'
 import CarouselCustomProvider from './CarouselCustomProvider.js'
+import fetchSlides from '../../localServer/getters/fetchSlides.js'
 
-const slides = [...sliderData]
+const slides = fetchSlides()
 
 function SliderSection() {
   return (

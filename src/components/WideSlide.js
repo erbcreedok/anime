@@ -4,8 +4,10 @@ import hexToRgb from '../helpers/hexToRgb.js'
 import { ButtonNext, DotGroup } from 'pure-react-carousel'
 import { Button, ButtonToolbar, Icon } from 'rsuite'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 function WideSlide({ slide, visible }) {
+  const { t } = useTranslation()
   const [showVideo, setShowVideo] = useState(false)
   const overlayColor = slide.color || '#a02f27'
   const [slideDelay, setSlideDelay] = useState(10)
@@ -92,7 +94,7 @@ function WideSlide({ slide, visible }) {
         </div>
         <div className="d-flex wide_slide__buttons mt-4">
           <ButtonToolbar>
-            <Button componentClass={Link} to={'/anime/' + slide.animeId} color='red' size='lg'><Icon icon='play' className='mr-2'/> Смотреть</Button>
+            <Button componentClass={Link} to={'/anime/' + slide.animeId} color='red' size='lg'><Icon icon='play' className='mr-2'/> {t('watch')}</Button>
             <ButtonNext ref={nextButtonRef} className='rs-btn rs-btn-subtle rs-btn-lg rs-btn-default rs-btn-icon'><Icon icon='fast-forward'/></ButtonNext>
           </ButtonToolbar>
         </div>

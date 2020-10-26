@@ -7,6 +7,7 @@ import { useUserState } from '../providers/UserProvider'
 import { logout, useAuthDispatch } from '../providers/AuthProvider'
 import { useTranslation } from 'react-i18next'
 import locales from '../configs/locales.js'
+import reloadWindow from '../methods/reloadWindow.js'
 
 function Header({ stickyTransparent, ...props }) {
   const { t, i18n } = useTranslation('translation');
@@ -55,7 +56,7 @@ function Header({ stickyTransparent, ...props }) {
                 renderTitle={() => <IconButton size='lg' icon={<Icon icon='globe2' />} appearance='subtle' />}
               >
                 {locales.map(({code, name}) => (
-                  <Dropdown.Item key={code} onClick={() => i18n.changeLanguage(code)}>
+                  <Dropdown.Item key={code} onClick={() => i18n.changeLanguage(code).then(reloadWindow)}>
                     {name} {i18n.language === code && <Icon icon="check" className='ml-2' />}
                   </Dropdown.Item>
                 ))}
