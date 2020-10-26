@@ -7,7 +7,7 @@ const UserContext = createContext()
 export function useUserState() {
   const context = useContext(UserContext);
   if (context === undefined) {
-    throw new Error('useAuthState must be used within a AuthProvider');
+    throw new Error('useUserState must be used within a UserProvider');
   }
 
   return context;

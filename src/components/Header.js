@@ -30,7 +30,6 @@ function Header({ stickyTransparent, ...props }) {
     logout(dispatch)
   }
 
-
   return (
     <>
       {!stickyTransparent && <div className='header__margin' />}

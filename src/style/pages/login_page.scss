@@ -3,6 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-left: 16px;
+  padding-right: 16px;
   &__bg {
     position: absolute;
     z-index: -1;
@@ -14,6 +16,7 @@
   }
   .login_form__wrapper {
     max-width: 400px;
+    width: 400px;
     padding: 24px 16px;
     background: white;
     color: black;
