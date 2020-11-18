@@ -1,5 +1,6 @@
 const translation =  {
   'login': 'Кіру',
+  'logout': 'Шығу',
   'popular anime': 'Танымал аниме',
   'ongoings': 'Онгоингтер',
   'watch': 'Қарау',
@@ -11,6 +12,7 @@ const translation =  {
   'home': 'Басты бет',
   'categories': 'Категориялар',
   'about': 'Біз туралы',
+  'search': 'Іздеу',
 }
 
 export default translation

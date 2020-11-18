@@ -126,11 +126,6 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   height: 24px;
   margin-right: 8px;
 }
-@media (max-width: 767.98px) {
-  .header__logo_text {
-    display: none;
-  }
-}
 .header__search {
   width: 330px;
 }
@@ -167,6 +162,19 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
 }
 .header-transparent .header__search input::placeholder {
   color: rgba(255, 255, 255, 0.67);
+}
+@media (max-width: 575.98px) {
+  .header__desktop {
+    display: none;
+  }
+}
+@media (min-width: 575.98px) {
+  .header__mobile {
+    display: none;
+  }
+}
+.header__drawer .rs-drawer-content {
+  padding: 10px 20px;
 }
 
 .anime_box, .anime_box:hover {
@@ -638,6 +646,13 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
 .hard_backdrop.in {
   backdrop-filter: blur(50px);
   opacity: 0.6;
+}
+
+.drawer__backdrop-dark {
+  background-color: #0f131a;
+}
+.drawer__backdrop-dark.in {
+  opacity: 0.8;
 }
 
 .login_form {

@@ -1,5 +1,6 @@
 const translation =  {
   'login': 'Sign in',
+  'logout': 'Log out',
   'popular anime': 'Popular anime',
   'ongoings': 'Ongoings',
   'watch': 'Watch',
@@ -10,7 +11,8 @@ const translation =  {
   'similar anime': 'Similar anime',
   'home': 'Home',
   'categories': 'Categories',
-  'about': 'About',
+  'about': 'About Us',
+  'search': 'Search',
 }
 
 export default translation

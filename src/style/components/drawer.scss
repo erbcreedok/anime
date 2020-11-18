@@ -1,0 +1,6 @@
+.drawer__backdrop-dark {
+  background-color: #0f131a;
+  &.in {
+    opacity: .8;
+  }
+}

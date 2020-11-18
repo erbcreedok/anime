@@ -1,5 +1,6 @@
 const translation =  {
   'login': 'Войти',
+  'logout': 'Выйти',
   'popular anime': 'Популярные аниме',
   'ongoings': 'Онгоинги',
   'watch': 'Смотреть',
@@ -11,6 +12,7 @@ const translation =  {
   'home': 'Главная',
   'categories': 'Категории',
   'about': 'О нас',
+  'search': 'Поиск',
 }
 
 export default translation
