@@ -8,6 +8,7 @@ import { logout, useAuthDispatch } from '../providers/AuthProvider'
 import { useTranslation } from 'react-i18next'
 import locales from '../configs/locales.js'
 import reloadWindow from '../methods/reloadWindow.js'
+import ResponsiveNav from '@rsuite/responsive-nav'
 
 function Header({ stickyTransparent, ...props }) {
   const { t, i18n } = useTranslation('translation');
@@ -43,9 +44,14 @@ function Header({ stickyTransparent, ...props }) {
           </div>
           <Link to='/' className="link_inherit header__logo">
             <img src={Logo} alt="" className='header__logo_image'/>
-            KANDO
+            <span className="header__logo_text">KANDO</span>
           </Link>
-          <div className="header__search ml-auto">
+          <div className="header__nav rsuite_dark_theme mx-auto">
+              <ResponsiveNav>
+                <ResponsiveNav.Item componentClass={Link} to='/'>Главная</ResponsiveNav.Item>
+                <ResponsiveNav.Item componentClass={Link}>Категории</ResponsiveNav.Item>
+                <ResponsiveNav.Item componentClass={Link} to='/about'>О Нас</ResponsiveNav.Item>
+              </ResponsiveNav>
           </div>
           <div className='header__sign_in ml-4 rsuite_dark_theme'>
             <ButtonToolbar className='d-flex'>

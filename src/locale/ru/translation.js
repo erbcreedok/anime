@@ -8,6 +8,9 @@ const translation =  {
   'seasons': 'Сезоны',
   'episodes': 'Эпизоды',
   'similar anime': 'Похожие аниме',
+  'home': 'Главная',
+  'categories': 'Категории',
+  'about': 'О нас',
 }
 
 export default translation

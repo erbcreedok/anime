@@ -10,6 +10,7 @@
   --dark-main-color: #dedede;
   --dark-main-background: #2f2f2f;
   --dark-secondary-background: #1f1f1f;
+  --color-yellow: rgb(255, 213, 66);
 }
 
 body {
@@ -80,6 +81,24 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   color: inherit;
 }
 
+.label {
+  font-size: 16px;
+}
+.label-s {
+  font-size: 14px;
+}
+.label-l {
+  font-size: 18px;
+}
+
+.color-brand {
+  color: var(--color-brand);
+}
+
+.color-yellow {
+  color: var(--color-yellow);
+}
+
 .header {
   padding: 10px 0;
   width: 100%;
@@ -107,12 +126,20 @@ a:not([class]), a:not([class]):hover, .link_inherit, .link_inherit:hover {
   height: 24px;
   margin-right: 8px;
 }
+@media (max-width: 767.98px) {
+  .header__logo_text {
+    display: none;
+  }
+}
 .header__search {
   width: 330px;
 }
 .header__margin {
   height: 62px;
   overflow: hidden;
+}
+.header__nav .rs-nav-item {
+  font-weight: bold;
 }
 .header-transparent {
   background: transparent;

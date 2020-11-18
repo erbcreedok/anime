@@ -23,6 +23,11 @@
       height: 24px;
       margin-right: 8px;
     }
+    &_text {
+      @media (max-width: 767.98px) {
+        display: none;
+      }
+    }
   }
   &__search {
     width: 330px;
@@ -30,6 +35,11 @@
   &__margin {
     height: 62px;
     overflow: hidden;
+  }
+  &__nav {
+    & .rs-nav-item {
+      font-weight: bold;
+    }
   }
   &-transparent {
     background: transparent;
